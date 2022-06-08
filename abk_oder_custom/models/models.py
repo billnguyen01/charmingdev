@@ -5,11 +5,22 @@ from odoo import models, fields, api
 
 class custom_sale_order(models.Model):
     _inherit = 'sale.order'
-    paid = fields.Integer('Paid')
+    paid = fields.Float('Paid', compute="depends_invoice_id")
     remaining = fields.Integer('Remaining')
     payment_schedule = fields.Selection([('late', 'Late'), ('not_late', 'Not late')], string="Payment Schedule")
     can_deliver = fields.Selection([('yes', 'Yes'), ('no', 'No')], string="Can deliver")
     count_paid = fields.Many2many("account.move", string='Count Paid')
+
+    @api.depends('invoice_ids')
+    def depends_invoice_id(self):
+        for invoice in self:
+            amount_due = 0.0
+            if invoice:
+                for aml in invoice.invoice_ids:
+                    amount_due += aml.invoice_payments_widget
+            invoice.update({
+                'paid': amount_due
+            })
 
 
 class warning_delivery(models.Model):
