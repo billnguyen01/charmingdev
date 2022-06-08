@@ -11,16 +11,16 @@ class custom_sale_order(models.Model):
     can_deliver = fields.Selection([('yes', 'Yes'), ('no', 'No')], string="Can deliver")
     count_paid = fields.Many2many("account.move", string='Count Paid')
 
-    # @api.depends('invoice_ids')
-    # def depends_invoice_id(self):
-    #     for invoice in self:
-    #         amount_due = 0.0
-    #         if invoice:
-    #             for aml in invoice.invoice_ids:
-    #                 amount_due += aml.invoice_payments_widget
-    #         invoice.update({
-    #             'paid': amount_due
-    #         })
+    @api.depends('invoice_ids')
+    def depends_invoice_id(self):
+        for invoice in self:
+            amount_due = 0.0
+            if invoice:
+                for aml in invoice.invoice_ids:
+                    amount_due += (aml.amount_total - aml.amount_residual)
+            invoice.update({
+                'paid': amount_due
+            })
 
 
 class warning_delivery(models.Model):
