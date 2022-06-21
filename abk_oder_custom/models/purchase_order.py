@@ -50,11 +50,3 @@ class PurchaseOrderCustom(models.Model):
     abk_materialduedate = fields.Datetime('Material Due Date')
     abk_sono = fields.Char('Sales order number')
     abk_sale_order_id = fields.Many2one('sale.order', string='Sale Order')
-
-    abk_seqno = fields.Char('Sequence Number')
-    abk_itemno = fields.Char('Item Number')
-    abk_itemdesc = fields.Text('Item Description')
-    abk_size = fields.Char('Size')
-    abk_qty = fields.Char('Quantity')
-    abk_unit = fields.Char('Unit')
-
