@@ -1,6 +1,5 @@
-from AptUrl.Helpers import _
 
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 
 
 class RmaProcess(models.Model):
