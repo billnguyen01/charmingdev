@@ -58,7 +58,6 @@ class SaleOrder(models.Model):
     def rma_button(self):
         """rma button"""
         if not self.rma_process_id:
-
             rma = self.env['rma.process'].sudo().create({
                 'customer_id': self.partner_id.id,
                 'date': self.date_order,
@@ -68,7 +67,6 @@ class SaleOrder(models.Model):
             self.rma_process_id = rma.id
         else:
             rma = self.rma_process_id
-
         for line in self.order_line:
             if not line.rma_line_id:
                 var = self.env['rma.order.line'].sudo().create({

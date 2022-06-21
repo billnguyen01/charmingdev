@@ -11,7 +11,7 @@
 
 {
     'name': 'RMA Process',
-    'version': '14.0.1.0.0',
+    'version': '15.0.1.0.0',
     'summary': """Manages RMA process and credit notes""",
     'description': """This module is used to tracking RMA process and credit note through invoice in sale order.""",
     'category': "Generic Modules/Human Resources",
