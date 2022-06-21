@@ -116,3 +116,4 @@ class PurchaseOrderApprover(models.Model):
             ('approved', 'Approved'),
             ('rejected', 'Rejected'),
         ], string='Status', readonly=True, required=True, default='to approve')
+

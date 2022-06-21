@@ -61,3 +61,4 @@ Key Features:
     'auto_install': False,
     'application': True,
 }
+

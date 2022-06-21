@@ -233,3 +233,4 @@ class PurchaseOrder(models.Model):
                 reason = _('It is locked after generated approval route. ')
                 suggestion = _('To make changes, cancel and reset PO to draft. ')
                 raise UserError(msg + "\n\n" + reason + "\n\n" + suggestion)
+

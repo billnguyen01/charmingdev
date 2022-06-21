@@ -19,3 +19,4 @@ class ResConfigSettings(models.TransientModel):
 
     po_order_approval_route = fields.Selection(related='company_id.po_order_approval_route',
                                                string="Use Approval Route", readonly=False)
+
