@@ -36,12 +36,15 @@ class ProductTemplateCustom(models.Model):
     abk_safety_qty = fields.Char('Safety Stock')
     abk_reorder_level = fields.Integer('Re-Order to Max')
     abk_minorder_qty = fields.Integer('Min Order Qty')
-    abk_lead_time = fields.Char('Lead Time')
-    abk_production_lead_time = fields.Char('Production Lead Time')
+    abk_lead_time = fields.Datetime('Lead Time')
+    abk_production_lead_time = fields.Datetime('Production Lead Time')
     abk_generate_sugg = fields.Char('Generate PO Suggestions')
     abk_backflush = fields.Char('BackFlush')
-    abk_warehouse_code = fields.Char('Warehouse')
     abk_prim_bin_num = fields.Char('Bin')
+
+    abk_part_length = fields.Float('Part Length')
+    abk_part_height = fields.Float('Part Height')
+    abk_part_width = fields.Float('Part Width')
 
     # existing
     abk_part_num = fields.Char('Part')
