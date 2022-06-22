@@ -6,6 +6,7 @@ class RmaProcess(models.Model):
 
     _name = "rma.process"
     _description = "Rma Process"
+    _rec_name = 'sale_order_id'
 
     customer_id = fields.Many2one('res.partner', string='Customer')
     date = fields.Datetime(string='Date')
