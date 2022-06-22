@@ -68,7 +68,11 @@
                 <button name="rma_button" type="object" string="Create RMA" attrs="{'invisible': [('invoice_count', '=', 0)]}" />
                 <field name="invoice_ids" invisible="1">
 
+
                 </field>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="after">
+                <field name="rma_line_id" invisible="1"/>
             </xpath>
 
             <div class="oe_button_box" name="button_box">
