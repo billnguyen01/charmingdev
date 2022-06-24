@@ -10,4 +10,4 @@ class MRPRoutingWorkCenter(models.Model):
     bill_of_material = fields.Many2one('product.product', string='Bill Of Material')
     supplier = fields.Many2one('res.partner', string='Supplier')
     product_service = fields.Many2one('product.template', string='Product')
-    cost_per_unit = fields.Monetary(string='Cost Per Unit')
+    cost_per_unit = fields.Float(string='Cost Per Unit')
