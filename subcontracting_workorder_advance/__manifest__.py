@@ -18,6 +18,7 @@
     'depends': ['base', 'mrp', 'purchase', 'sale', 'account', 'stock'],
 
     'data': [
-        'views/component_product_bom.xml'
+        'views/component_product_bom.xml',
+        'views/mrp_workorder_view.xml'
     ],
 }
