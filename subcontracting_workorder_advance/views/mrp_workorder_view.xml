@@ -12,6 +12,9 @@
                             class="btn-warning"
                             attrs="{}"/>
                 </xpath>
+                <xpath expr="//field[@name='date_planned_start']" position="before">
+                    <field name="bill_of_material" string="Bill Of Material"/>
+                </xpath>
             </field>
         </record>
     </data>
