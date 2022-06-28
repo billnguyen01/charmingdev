@@ -10,10 +10,10 @@
                             type="object"
                             string="Subcontract WorkOrder"
                             class="btn-warning"
-                            attrs="{}"/>
+                            attrs="{'invisible': [(operation_id.is_subcontract, '=', True)]}"/>
                 </xpath>
                 <xpath expr="//field[@name='date_planned_start']" position="before">
-                    <field name="bill_of_material" string="Bill Of Material"/>
+                    <field name="production_bom_id" string="Bill Of Material"/>
                 </xpath>
             </field>
         </record>
