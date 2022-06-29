@@ -10,7 +10,7 @@ _logger = logging.getLogger(__name__)
 class MrpWorkOrderSubcontract(models.Model):
     _inherit = 'mrp.workorder'
 
-    is_subcontract = fields.Char(compute='_compute_is_subcontract', string="Subcontract?", store=False)
+    is_subcontract = fields.Boolean(compute='_compute_is_subcontract', string="Subcontract?", store=False)
 
     @api.depends('operation_id')
     def _compute_is_subcontract(self):
