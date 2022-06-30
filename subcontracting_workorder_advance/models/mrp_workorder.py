@@ -46,7 +46,7 @@ class MrpWorkOrderSubcontract(models.Model):
                 'name': item.product_id.name,
                 'product_id': item.product_id.id,
                 'product_uom_qty': item.qty_produced,
-                'product_uom': self.env.ref('uom.product_uom_kgm').id,
+                'product_uom': item.product_id.uom_id.id,
                 'location_id': production.location_src_id.id,
                 'location_dest_id': production.location_dest_id.id
             }))
@@ -74,7 +74,7 @@ class MrpWorkOrderSubcontract(models.Model):
                 'name': self.product_id.name,
                 'product_id': self.product_id.id,
                 'product_uom_qty': self.qty_produced,
-                'product_uom': self.env.ref('uom.product_uom_kgm').id,
+                'product_uom': self.product_id.uom_id.id,
                 'location_id': production.location_dest_id.id,
                 'location_dest_id': production.location_src_id.id
             })]
