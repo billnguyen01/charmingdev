@@ -85,6 +85,12 @@ class custom_sale_order(models.Model):
     abk_proforma_invoice_number = fields.Integer('Proforma Invoice Number')
     abk_podate = fields.Date('Po Date')
     abk_custpono = fields.Char('Customer Po Number')
+    abk_inputdate = fields.Date('Input Date')
+    abk_inputtime = fields.Float('Input Time')
+    abk_conprn = fields.Char('Con Prn')
+    abk_condate = fields.Date('Con Date')
+    abk_contime = fields.Float('Con Time')
+    abk_ename = fields.Char('English Name')
 
 
     @api.depends('invoice_ids')
