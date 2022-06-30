@@ -70,7 +70,7 @@ class ProductTemplateCustom(models.Model):
     abk_type5 = fields.Char('Type 5')
     abk_stockamt = fields.Char('Stock Amount')
     abk_unit = fields.Char('Unit')
-    abk_producttype = fields.Char('Product Type')
+    abk_productype = fields.Char('Product Type')
     abk_adgetype = fields.Char('Adge Type')
     abk_machine = fields.Char('Machine')
     abk_process = fields.Char('Process')
