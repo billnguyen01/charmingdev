@@ -29,6 +29,7 @@ class custom_sale_order(models.Model):
     abk_creation_date = fields.Datetime('Creation Date')
     abk_amendement_user = fields.Char('Amendement User')
     abk_amendement_date = fields.Datetime('Amendement Date')
+    abk_amendement_time = fields.Float('Amendement Time')
     abk_po_void = fields.Selection([('yes', 'Yes'), ('no', 'No')], string="PO Void")
     abk_con_status = fields.Char('Con Status')
     abk_sales_date = fields.Datetime('Sales Date')
