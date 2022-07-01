@@ -87,6 +87,7 @@ class custom_sale_order(models.Model):
     abk_conprn = fields.Char('Con Prn')
     abk_condate_time = fields.Datetime('Con Date')
     abk_ename = fields.Char('English Name')
+    abk_inputdate = fields.Datetime('Input Date')
 
 
     @api.depends('invoice_ids')
