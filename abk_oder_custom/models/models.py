@@ -29,7 +29,6 @@ class custom_sale_order(models.Model):
     abk_creation_date = fields.Datetime('Creation Date')
     abk_amendement_user = fields.Char('Amendement User')
     abk_amendement_date = fields.Datetime('Amendement Date')
-    abk_amendment_tiem = fields.Char('Amendment Time')
     abk_po_void = fields.Selection([('yes', 'Yes'), ('no', 'No')], string="PO Void")
     abk_con_status = fields.Char('Con Status')
     abk_sales_date = fields.Datetime('Sales Date')
@@ -84,9 +83,9 @@ class custom_sale_order(models.Model):
     abk_proforma_invoice_number = fields.Integer('Proforma Invoice Number')
     abk_podate = fields.Datetime('Po Date')
     abk_custpono = fields.Char('Customer Po Number')
-    abk_inputdate = fields.Datetime('Input Date')
+    abk_input_date_time = fields.Datetime('Input Date')
     abk_conprn = fields.Char('Con Prn')
-    abk_condate = fields.Datetime('Con Date')
+    abk_condate_time = fields.Datetime('Con Date')
     abk_ename = fields.Char('English Name')
 
 
