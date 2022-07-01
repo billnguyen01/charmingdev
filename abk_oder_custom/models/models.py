@@ -27,7 +27,6 @@ class custom_sale_order(models.Model):
     abk_remark = fields.Char('Remark')
     abk_user_id = fields.Char('User ID')
     abk_creation_date = fields.Datetime('Creation Date')
-    abk_creation_time = fields.Float('Creation Time')
     abk_amendement_user = fields.Char('Amendement User')
     abk_amendement_date = fields.Datetime('Amendement Date')
     abk_amendment_tiem = fields.Char('Amendment Time')
@@ -86,10 +85,8 @@ class custom_sale_order(models.Model):
     abk_podate = fields.Datetime('Po Date')
     abk_custpono = fields.Char('Customer Po Number')
     abk_inputdate = fields.Datetime('Input Date')
-    abk_inputtime = fields.Float('Input Time')
     abk_conprn = fields.Char('Con Prn')
     abk_condate = fields.Datetime('Con Date')
-    abk_contime = fields.Float('Con Time')
     abk_ename = fields.Char('English Name')
 
 
