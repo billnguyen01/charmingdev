@@ -4,6 +4,7 @@ from odoo import models, fields, api
 class PurchaseOrderCustom(models.Model):
     _inherit = 'purchase.order'
 
+    abk_impt = fields.Char('Tax Type')
     abk_productno = fields.Char('Product Number')
     abk_podate = fields.Datetime('Order Date', default=fields.Datetime.now)
     abk_custno = fields.Char('Customer Number')
