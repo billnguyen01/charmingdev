@@ -14,7 +14,7 @@
                             attrs="{'invisible': [('is_subcontract', '=', False)]}"/>
                 </xpath>
                 <xpath expr="//field[@name='date_planned_start']" position="before">
-                    <field name="production_bom_id" string="Bill Of Material"/>
+                    <field name="sub_bom_id" string="Bill Of Material"/>
                 </xpath>
             </field>
         </record>

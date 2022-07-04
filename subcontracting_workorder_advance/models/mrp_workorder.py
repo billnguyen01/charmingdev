@@ -12,11 +12,17 @@ class MrpWorkOrderSubcontract(models.Model):
     _inherit = 'mrp.workorder'
 
     is_subcontract = fields.Boolean(compute='_compute_is_subcontract', string="Subcontract?", store=False)
+    sub_bom_id = fields.Many2one('mrp.bom', string='Bill Of Material', store=False, compute='_compute_sub_bom')
 
     @api.depends('operation_id')
     def _compute_is_subcontract(self):
         for record in self:
             record['is_subcontract'] = record.operation_id.is_subcontract
+
+    @api.depends('operation_id')
+    def _compute_sub_bom(self):
+        for record in self:
+            record['sub_bom_id'] = record.operation_id.sub_bom_id
 
     def button_subcontract(self):
         self.create_po()

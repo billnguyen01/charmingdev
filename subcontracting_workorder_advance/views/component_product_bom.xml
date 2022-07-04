@@ -9,7 +9,7 @@
                     <page string="Subcontract">
                         <group>
                             <field name="is_subcontract" string="Subcontract?"/>
-                            <field name="bom_id" string="Bill Of Material"/>
+                            <field name="sub_bom_id" string="Bill Of Material"/>
                             <field name="supplier" string="Supplier"/>
                             <field name="product_service" string="Product"/>
                             <field name="cost_per_unit" string="Cost Per Unit"/>
