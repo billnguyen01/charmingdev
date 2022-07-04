@@ -4,7 +4,6 @@ from odoo import models, fields, api
 class PurchaseOrderCustom(models.Model):
     _inherit = 'purchase.order'
 
-    abk_impt = fields.Char('Tax Type')
     abk_productno = fields.Char('Product Number')
     abk_podate = fields.Datetime('Order Date', default=fields.Datetime.now)
     abk_custno = fields.Char('Customer Number')
@@ -27,7 +26,7 @@ class PurchaseOrderCustom(models.Model):
     abk_produser = fields.Char('Production User')
     abk_stockqty = fields.Float('Stock quantity')
     abk_poqty = fields.Float('PO Quantity')
-    abk_pounit = fields.Float('PO Unit')
+    abk_pounit = fields.Char('PO Unit')
 
     abk_delmark = fields.Text('Delivery Mark')
     abk_internalcode = fields.Char('Internal Code')
@@ -42,6 +41,18 @@ class PurchaseOrderCustom(models.Model):
     abk_materialduedate = fields.Datetime('Material Due Date')
     abk_sono = fields.Char('Sales order number')
     abk_sale_order_id = fields.Many2one('sale.order', string='Sale Order')
+
+    state = fields.Selection([
+        ('draft', 'RFQ'),
+        ('sent', 'RFQ Sent'),
+        ('to approve', 'To Approve'),
+        ('purchase', 'Purchase Order'),
+        ('done', 'Locked'),
+        ('cancel', 'Cancelled')
+    ], string='Status', readonly=False, index=True, copy=False, default='draft', tracking=True)
+
+    date_approve = fields.Datetime('Confirmation Date', readonly=0, index=True, copy=False)
+
 
 class PurchaseOrderLineCustom(models.Model):
     _inherit = 'purchase.order.line'
