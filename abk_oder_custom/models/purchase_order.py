@@ -42,17 +42,6 @@ class PurchaseOrderCustom(models.Model):
     abk_sono = fields.Char('Sales order number')
     abk_sale_order_id = fields.Many2one('sale.order', string='Sale Order')
 
-    state = fields.Selection([
-        ('draft', 'RFQ'),
-        ('sent', 'RFQ Sent'),
-        ('to approve', 'To Approve'),
-        ('purchase', 'Purchase Order'),
-        ('done', 'Locked'),
-        ('cancel', 'Cancelled')
-    ], string='Status', readonly=False, index=True, copy=False, default='draft', tracking=True)
-
-    date_approve = fields.Datetime('Confirmation Date', readonly=0, index=True, copy=False)
-
 
 class PurchaseOrderLineCustom(models.Model):
     _inherit = 'purchase.order.line'
