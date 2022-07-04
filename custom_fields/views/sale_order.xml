@@ -1,0 +1,155 @@
+<odoo>
+    <record id="view_custom_fields_sale" model="ir.ui.view">
+        <field name="name">sale.order.inherited</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//group[@name='partner_details']" position="attributes">
+                <attribute name="string">Customer Details</attribute>
+            </xpath>
+
+            <xpath expr="//group[@name='order_details']" position="attributes">
+                <attribute name="string">Payment Details</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="customer_id"/>
+                <field name="customer_short"/>
+                <field name="customer_name_english"/>
+                <field name="customer_number"/>
+                <field name="attention"/>
+                <field name="sales_code"/>
+                <field name="sale_ids" widget="many2many_tags" string="Previous Sales"/>
+                <field name="customer_remark"/>
+            </xpath>
+
+            <xpath expr="//group[@name='order_details']" position="after">
+                <group name='sales_details' string="Sale Information">
+                    <field name="sales_date"/>
+                    <field name="salesman"/>
+                    <field name="sale_type"/>
+                    <field name="agent"/>
+                    <field name="product_importance"/>
+                    <field name="customer_service"/>
+                    <field name="sort_key"/>
+                    <field name="format_id"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <xpath expr="//field[@name='payment_schedule']" position="move"/>
+            </xpath>
+
+            <xpath expr="//field[@name='payment_schedule']" position="after">
+                <xpath expr="//field[@name='paid']" position="move"/>
+            </xpath>
+
+            <xpath expr="//field[@name='paid']" position="after">
+                <xpath expr="//field[@name='remaining']" position="move"/>
+            </xpath>
+
+            <xpath expr="//field[@name='sales_code']" position="after">
+                <xpath expr="//field[@name='can_deliver']" position="move"/>
+            </xpath>
+
+            <xpath expr="//field[@name='sales_date']" position="after">
+                <xpath expr="//field[@name='user_id']" position="move"/>
+            </xpath>
+
+            <xpath expr="//field[@name='user_id']" position="after">
+                <xpath expr="//field[@name='team_id']" position="move"/>
+            </xpath>
+
+            <xpath expr="//field[@name='can_deliver']" position="after">
+                <field name="remark"/>
+                <field name="co_mark"/>
+                <field name="status"/>
+                <field name="web_order_no"/>
+            </xpath>
+
+            <xpath expr="//group[@name='sales_details']" position="after">
+                <group name="project_details" string="Project Information">
+                    <field name="po_project"/>
+                    <field name="project"/>
+                    <field name="require_date"/>
+                    <field name="delivery_address"/>
+                    <field name="delivery_descr"/>
+                    <field name="delivery_date"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//field[@name='date_order']" position="after">
+                <field name="order_currency" />
+            </xpath>
+
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="payment_description"/>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="before">
+                <field name="brand"/>
+                <field name="sub_brand"/>
+            </xpath>
+
+            <xpath expr="/form/sheet/notebook/page[@name='customer_signature']" position="after">
+                <page name="record_information" string="Record Information">
+                    <group>
+                        <group>
+                            <field name="created_by"/>
+                            <field name="creation_date"/>
+                            <field name="amendment_user"/>
+                            <field name="amendment_date"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="/form/sheet/notebook/page[@name='record_information']" position="after">
+                <page name="purchase_information" string="Purchase Information">
+                    <group>
+                        <group>
+                            <field name="po_order"/>
+                        </group>
+                        <group>
+                            <field name="proforma_number"/>
+                            <field name="referrer"/>
+                            <field name="po_number"/>
+                            <field name="proforma_remark"/>
+                            <field name="po_valid"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_id']" position="after">
+                <field name="customer_material_no"/>
+                <field name="group"/>
+                <field name="unit"/>
+                <field name="item_size"/>
+                <field name="direct_manufacture"/>
+                <field name="outsourcing"/>
+                <field name="currency"/>
+                <field name="symbol"/>
+                <field name="rate"/>
+                <field name="amount"/>
+                <field name="hka_amount"/>
+                <field name="material_type"/>
+                <field name="output_quantity"/>
+                <field name="ft"/>
+                <field name="ct"/>
+                <field name="web_line_item"/>
+                <field name="art_work_no_pages"/>
+                <field name="art_work_size"/>
+            </xpath>
+            <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='price_subtotal']" position="after">
+                <field name="hkd_amount"/>
+            </xpath>
+
+
+            <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_id']" position="before">
+                <field name="product_no"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
