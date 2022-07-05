@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="rma_process_views_form" model="ir.ui.view">
+        <field name="name">rma.process.form</field>
+        <field name="model">rma.process</field>
+        <field name="arch" type="xml">
+            <form string="Rma Process">
+                <header>
+                    <button id="action_validate" name="button_validate" string="Validate" class="oe_highlight"
+                            type="object" attrs="{'invisible': [('state', '=', 'completed')]}"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,completed"/>
+
+                </header>
+                <sheet>
+
+
+                    <group>
+                        <field name="customer_id"/>
+                    </group>
+                    <group>
+                        <field name="date"/>
+                    </group>
+                    <group>
+                        <notebook>
+                            <page string="Order Lines">
+                                <field name="rma_line_ids">
+                                    <tree string="" editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="description"/>
+                                        <field name="quantity_product_uom"/>
+                                        <field name="delivered_qty"/>
+                                        <field name="invoiced_qty"/>
+                                        <field name="unit_price"/>
+                                        <field name="tax_id"/>
+                                        <field name="sub_total" widget='Monetary'/>
+                                        <field name="currency_id" invisible="1"/>
+                                        <field name="company_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_branch_tree_RRR" model="ir.ui.view">
+        <field name="name">res.branch.tree</field>
+        <field name="model">rma.order.line</field>
+        <field name="arch" type="xml">
+            <form string="Branches">
+                <field name="product_id"/>
+                <field name="rma_process_id"/>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_rma_order_auto_done_setting" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//form//header//button[@name='action_cancel']" position="after">
+                <button name="rma_button" type="object" string="Create RMA" attrs="{'invisible': [('invoice_count', '=', 0)]}" />
+                <field name="invoice_ids" invisible="1">
+
+
+                </field>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="after">
+                <field name="rma_line_id" invisible="1"/>
+            </xpath>
+
+            <div class="oe_button_box" name="button_box">
+                <button name="get_rma" type="object" class="oe_stat_button" icon="fa-save" attrs="{'invisible': [('rma_process_id', '=', False)]}">
+                    <field name="rma_process_id" invisible="1">
+
+                    </field>
+                    <div class="o_stat_info">
+
+                        <span class="oe_stat_text">RMA Process</span>
+                    </div>
+                </button>
+            </div>
+
+
+        </field>
+    </record>
+</odoo>
