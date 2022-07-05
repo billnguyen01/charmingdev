@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="mrp_production_workorder_tree_editable_view_inherit_quality_subcontract">
+            <field name="name">mrp.production.work.order.tree.editable.inherit.quality.subcontract</field>
+            <field name="model">mrp.workorder</field>
+            <field name="inherit_id" ref="mrp.mrp_production_workorder_tree_editable_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='button_start']" position="before">
+                    <field name="is_subcontract" invisible="1"/>
+                    <button name="button_subcontract"
+                            type="object"
+                            string="Subcontract WorkOrder"
+                            class="btn-warning"
+                            attrs="{'invisible': [('is_subcontract', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='date_planned_start']" position="before">
+                    <field name="sub_bom_id" string="Bill Of Material"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

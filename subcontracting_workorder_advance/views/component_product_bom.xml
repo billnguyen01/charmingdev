@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <record id="mrp_routing_workcenter_form_subcontract" model="ir.ui.view">
+            <field name="name">mrp.routing.workcenter.form.subcontract</field>
+            <field name="model">mrp.routing.workcenter</field>
+            <field name="inherit_id" ref="mrp.mrp_routing_workcenter_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[last()]" position="after">
+                    <page string="Subcontract">
+                        <group>
+                            <field name="is_subcontract" string="Subcontract?"/>
+                            <field name="sub_bom_id" string="Bill Of Material"/>
+                            <field name="supplier" string="Supplier"/>
+                            <field name="product_service" string="Product"/>
+                            <field name="cost_per_unit" string="Cost Per Unit"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
